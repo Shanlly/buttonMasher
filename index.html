@@ -10,7 +10,7 @@
 	</script>
 </head>
 <body>
-
+<!--buttons and counters in game -->
 	<button id="clickme">Click Me</button>
 	<div id="points"></div>
 	<button id="buy_masher">Buy Masher</button>
@@ -18,7 +18,7 @@
 <script>
 	var points=0;
 	var masher =0;
-	// var img = $("<img href" + ____ + "/>").attr();
+	// how color and font size changes with point values 
 	function colorSize(points){
 		if(points < 0){
 			$('#points').css({
@@ -64,17 +64,19 @@
 				});
 		}
 	}
-
+// counts and shows points
 	function showPoints(){
 		$('#points').text(points);
 		// $('#mashers').text(masher);
 		colorSize(points);
 
 	}
+	// counts and shows masher
 	function runMasher(){
 		points+= masher;
 		showPoints();
 	}
+	// runs on setup to get the page ready for the gamer interaction 
 	$(Document).ready(function(){
 		$("#clickme").click(function () {
 		points++;
@@ -85,6 +87,7 @@
 			points-= 40;
 			masher++;
 			showPoints();
+			//hammer gif "the masher"
 			$("#buy_masher").after('<img src="http://www.animatedimages.org/data/media/515/animated-hammer-image-0018.gif" border="0" alt="animated-hammer-image-0018"/>');
 			colorSize(points);
 		});
